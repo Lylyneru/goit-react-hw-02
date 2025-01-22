@@ -3,7 +3,6 @@ import Feedback from "./components/Feedback/Feedback.jsx";
 import Options from "./components/Options/Options.jsx";
 import Notification from "./components/Notification/Notification.jsx";
 import Description from "./components/Description/Description.jsx";
-import s from "./App.module.css";
 
 const App = () => {
   const [feedback, setFeedback] = useState(() => {
@@ -42,14 +41,11 @@ const App = () => {
       />
 
       {totalFeedback > 0 ? (
-        <>
-          <Feedback
-            feedback={feedback}
-            total={totalFeedback}
-            positivePercentage={positivePercentage}
-          />
-          <button onClick={resetFeedback}>Reset</button>
-        </>
+        <Feedback
+          feedback={feedback}
+          total={totalFeedback}
+          positivePercentage={positivePercentage}
+        />
       ) : (
         <Notification message="No feedback yet" />
       )}

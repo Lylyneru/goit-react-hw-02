@@ -1,13 +1,17 @@
 import s from "./Options.module.css";
 
-const Options = ({ updateFeedback, resetFeedback, hasFeedback }) => {
+const Options = ({ updateFeedback, resetFeedback, total }) => {
   return (
-    <div className={s.options}>
+    <div className={s.optionsContainer}>
       <button onClick={() => updateFeedback("good")}>Good</button>
       <button onClick={() => updateFeedback("neutral")}>Neutral</button>
       <button onClick={() => updateFeedback("bad")}>Bad</button>
 
-      {hasFeedback && <button onClick={resetFeedback}>Reset</button>}
+      {total > 0 && (
+        <button onClick={resetFeedback} className={s.resetButton}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
